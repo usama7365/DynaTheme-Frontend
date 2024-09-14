@@ -43,9 +43,15 @@ The frontend will be running on `http://localhost:3000`.
 
 ## Project Structure
 ````
-frontend/ │ ├── components/ // Reusable components (buttons, headers, etc.) ├── pages/ // Next.js pages (home, settings, etc.) │ └── index.tsx // Main CMS interface ├── styles/ // Global and component-specific styles ├── utils/ // Utility functions for API calls and data handling └── types/ // TypeScript types and interfaces
+frontend/
+│
+├── components/          // Reusable components (buttons, headers, etc.)
+├── pages/               // Next.js pages (home, settings, etc.)
+│   └── index.tsx        // Main CMS interface
+├── styles/              // Global and component-specific styles
+├── utils/               // Utility functions for API calls and data handling
+└── types/               // TypeScript types and interfaces
 ````
-
 
 
 ## API Integration
