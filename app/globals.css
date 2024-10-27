@@ -2,24 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Define custom properties for light and dark modes */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #1f1f1f; /* Dark background */
+  --foreground: #ffffff; /* Light text */
 }
 
+/* Dark mode settings */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #0a0a0a; /* Darker background */
+    --foreground: #ededed; /* Lighter text */
   }
 }
 
+/* Apply custom colors to body */
 body {
   color: var(--foreground);
-  background: var(--background);
+  background-color: var(--background); /* Fix background declaration */
   font-family: Arial, Helvetica, sans-serif;
 }
 
+/* Tailwind layer for custom utility */
 @layer utilities {
   .text-balance {
     text-wrap: balance;

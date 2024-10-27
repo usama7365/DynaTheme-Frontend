@@ -5,6 +5,7 @@
 /.pnp
 .pnp.js
 .yarn/install-state.gz
+package-lock.json
 
 # testing
 /coverage
@@ -34,3 +35,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+Yeh demo ha before api integration yeh hi video pari client ko bhejni thi lol waisay project para ha Sara kabhi session rakha to lazmi chala kr dikhaoun ga 
