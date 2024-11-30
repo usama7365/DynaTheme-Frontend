@@ -1,5 +1,3 @@
-// app/page.tsx
-
 'use client';
 
 import Image from "next/image";
@@ -21,14 +19,44 @@ export default function Home() {
     console.log("Sign Up clicked");
   };
 
+  // Animation Variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2, when: "beforeChildren" },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.42, 0, 0.58, 1] }, // Cubic bezier for a smooth effect
+    },
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, scale: 0.5 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.8, ease: [0.42, 0, 0.58, 1] },
+    },
+  };
+
   return (
-    <div className="flex flex-col min-h-screen items-center justify-center p-4 bg-gray-900">
-      {/* Logo Section with Animation */}
+    <motion.div
+      className="flex flex-col min-h-screen items-center justify-center p-4 bg-gray-900"
+      variants={containerVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {/* Logo Section with Enhanced Animation */}
       <motion.div
         className="mb-6"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.6 }}
+        variants={logoVariants}
       >
         <Image
           src={Logo}
@@ -38,29 +66,31 @@ export default function Home() {
           className="object-contain"
         />
       </motion.div>
-      {/* Welcome Text with Animation */}
+
+      {/* Welcome Text with Staggered Animation */}
       <motion.h1
         className="text-4xl font-semibold text-white mb-4 text-center"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        variants={itemVariants}
       >
         Welcome to the CMS Home Page
       </motion.h1>
-      {/* Optional Description with Animation */}
+
+      {/* Optional Description with Staggered Animation */}
       <motion.p
         className="text-lg text-gray-400 text-center max-w-md mb-6"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
+        variants={itemVariants}
       >
         Manage your content easily and efficiently with our CMS.
       </motion.p>
-      {/* Login and Signup Buttons */}
-      <div className="flex space-x-4">
+
+      {/* Buttons with Entering Animation */}
+      <motion.div
+        className="flex space-x-4"
+        variants={itemVariants}
+      >
         <Button label="Login" onClick={handleLogin} variant="primary" />
         <Button label="Sign Up" onClick={handleSignup} variant="secondary" />
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
